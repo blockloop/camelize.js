@@ -4,16 +4,18 @@ Camelize things.
 
 ## Example
 
-    const camelize = require("camelize.js");
+```javascript
+const camelize = require("camelize.js");
 
-    const obj = {
-        Name: "Brett"
-    }
+const obj = {
+    Name: "Brett"
+}
 
-    const fixed = camelize.camelizeObj(obj);
+const fixed = camelize.camelizeObj(obj);
 
-    console.log(fixed);
+console.log(fixed);
 
-    // {
-    //    name: "Brett"
-    // }
+// {
+//    name: "Brett"
+// }
+```
