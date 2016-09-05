@@ -1,0 +1,17 @@
+{
+  "name": "camelize.js",
+  "version": "1.0.0",
+  "description": "camelize objects, strings, and arrays",
+  "main": "src/index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "author": "blockloop",
+  "license": "ISC"
+}
