@@ -1,17 +1,25 @@
-module.exports = {
-    camelizeObj: camelizeObj,
-    camelizeStr: camelizeStr
+module.exports = (item) => {
+    if (item == null) {
+        return item;
+    }
+    if (typeof item === "string") {
+        return camelizeStr(item);
+    }
+    if (typeof item === "object") {
+        return camelizeObj(item);
+    }
+    return item;
 };
 
 function camelizeObj(obj) {
     if (obj == null) {
         return obj;
     }
-    if (typeof obj !== "object") {
-        return obj;
-    }
     if (Array.isArray(obj)) {
         return obj.map(camelizeObj);
+    }
+    if (typeof obj !== "object") {
+        return obj;
     }
 
     const newObj = {};

@@ -2,22 +2,20 @@
 
 const expect = require("expect.js");
 const camelize = require("../src/index.js");
-const camelizeObj = camelize.camelizeObj;
-const camelizeStr = camelize.camelizeStr;
 
-describe("camelizeObj", () => {
+describe("camelize", () => {
     it("should return non objects", () => {
         let expected = "asdf";
-        let res = camelizeObj(expected);
+        let res = camelize(expected);
         expect(res).to.eql(expected);
 
         expected = 1;
-        res = camelizeObj(expected);
+        res = camelize(expected);
         expect(res).to.eql(expected);
     });
 
     it("should work on simple objs", () => {
-        const res = camelizeObj({
+        const res = camelize({
             Name: "Bob"
         });
         expect(res).to.eql({
@@ -26,7 +24,7 @@ describe("camelizeObj", () => {
     });
 
     it("should work on arrays", () => {
-        const res = camelizeObj([{
+        const res = camelize([{
             Name: "Bob"
         }]);
         expect(res).to.eql([{
@@ -36,7 +34,7 @@ describe("camelizeObj", () => {
 
 
     it("should work on nested items", () => {
-        const res = camelizeObj({
+        const res = camelize({
             Name: "Bob",
             Address: {
                 Line1: "Line1",
@@ -53,7 +51,7 @@ describe("camelizeObj", () => {
     });
 
     it("should work on nested array items", () => {
-        const res = camelizeObj({
+        const res = camelize({
             Name: "Bob",
             Addresses: [{
                 Line1: "Line1",
@@ -68,22 +66,19 @@ describe("camelizeObj", () => {
             }]
         });
     });
-});
 
-
-describe("camelizeStr", () => {
     it("should lower first upper char", () => {
-        const res = camelizeStr("Name");
+        const res = camelize("Name");
         expect(res).to.eql("name");
     });
 
     it("should lower consecutives", () => {
-        const res = camelizeStr("NName");
+        const res = camelize("NName");
         expect(res).to.eql("nname");
     });
 
     it("should leave singles, not first", () => {
-        const res = camelizeStr("NameName");
+        const res = camelize("NameName");
         expect(res).to.eql("nameName");
     });
 });

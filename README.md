@@ -11,7 +11,7 @@ const obj = {
     Name: "Brett"
 }
 
-const fixed = camelize.camelizeObj(obj);
+const fixed = camelize(obj);
 
 console.log(fixed);
 
